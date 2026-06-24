@@ -182,22 +182,6 @@
             background: #4338CA;
             transform: translateY(-2px);
         }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .home-contact-inner {
-                grid-template-columns: 1fr;
-            }
-
-            .home-contact-info {
-                padding-right: 0;
-                padding-bottom: 40px;
-            }
-
-            .hc-heading {
-                font-size: 2rem;
-            }
-        }
     </style>
 </head>
 
@@ -234,7 +218,7 @@
                     acabados con 40 años de experiencia y de calidad 1, 2 y 3 con estilos para cada presupuesto.</p>
                 <div class="hero-actions">
                     <a href="materiales.html" class="primary-btn">Ver Promociones</a>
-                    <a href="#productos" class="secondary-btn">Explorar Servicios</a>
+                    <a href="servicios.html" class="secondary-btn">Explorar Servicios</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -303,6 +287,36 @@
 
             </div>
         </section>
+        <!-- ── Circle Mobile Menu ── -->
+        <div class="circle-menu-wrapper" id="circle-menu-wrapper">
+            <button class="circle-menu-trigger" id="circle-menu-trigger" aria-label="Abrir menú circular">
+                <i data-lucide="menu" id="circle-icon-open"></i>
+                <i data-lucide="x" id="circle-icon-close" style="display: none;"></i>
+            </button>
+            <div class="circle-menu-items">
+                <a href="#home" class="circle-menu-item">
+                    <i data-lucide="home"></i>
+                    <span class="label">Inicio</span>
+                </a>
+                <a href="materiales.html" class="circle-menu-item">
+                    <i data-lucide="tag"></i>
+                    <span class="label">Promociones</span>
+                </a>
+                <a href="servicios.html" class="circle-menu-item">
+                    <i data-lucide="briefcase"></i>
+                    <span class="label">Servicios</span>
+                </a>
+                <a href="ubicacion.html" class="circle-menu-item">
+                    <i data-lucide="map-pin"></i>
+                    <span class="label">Ubicación</span>
+                </a>
+                <a href="#contacto" class="circle-menu-item">
+                    <i data-lucide="mail"></i>
+                    <span class="label">Contacto</span>
+                </a>
+            </div>
+        </div>
+
     </main>
 
     <script src="script.js"></script>
