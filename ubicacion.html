@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubicación | Cerámicas de la Costa Caribe</title>
+    <meta name="description"
+        content="Encuéntranos en Cartagena. AV Pedro de Heredia Calle 30 #33-31. Cerámicas de la Costa Caribe, tu tienda de acabados en la costa caribe.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+
+<body>
+    <header id="main-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Logo Cerámicas de la Costa Caribe" class="logo-img">
+            </a>
+            <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-tab"><a href="index.html">Inicio</a></li>
+                <li class="nav-tab"><a href="materiales.html">Promociones</a></li>
+                <li class="nav-tab"><a href="servicios.html">Servicios</a></li>
+                <li class="nav-tab"><a href="ubicacion.html">Ubicación</a></li>
+                <li class="nav-tab"><a href="index.html#contacto">Contacto</a></li>
+                <li class="nav-cursor"></li>
+            </ul>
+            <a href="https://wa.me/573002615856" class="whatsapp-btn" target="_blank">
+                <i data-lucide="message-circle"></i>
+                <span>Cotización en línea</span>
+            </a>
+        </nav>
+    </header>
+
+    <main style="padding-top: 120px;">
+        <!-- Sección de ubicación -->
+        <section class="location" id="ubicacion">
+            <div class="location-wrapper">
+                <div class="location-info">
+                    <h2 class="section-title">Encuéntranos en Cartagena</h2>
+                    <p class="address"><i data-lucide="map-pin"></i> AV Pedro de Heredia Calle 30 #33-31</p>
+                    <p class="cta-text">Visítanos y descubre por qué somos los favoritos en cerámica y acabados en la
+                        costa
+                        caribe.</p>
+                    <a href="https://www.google.com/maps/place/Av.+Pedro+De+Heredia+%2333-31,+Alcibia,+Cartagena+de+Indias,+Bol%C3%ADvar/@10.4110248,-75.5238606,17z/data=!3m1!4b1!4m10!1m2!2m1!1sAV+pedro+de+heredia+Calle+30+33+31+Cartagena+Colombia!3m6!1s0x8ef625859e2e0683:0x6f0b07b0cab4d74e!8m2!3d10.4110248!4d-75.5189897!15sCjVBViBwZWRybyBkZSBoZXJlZGlhIENhbGxlIDMwIDMzIDMxIENhcnRhZ2VuYSBDb2xvbWJpYZIBEWNvbXBvdW5kX2J1aWxkaW5n4AEA!16s%2Fg%2F11j32qjfb3?entry=ttu&g_ep=EgoyMDI2MDMwOC4wIKXMDSoASAFQAw%3D%3D"
+                        target="_blank" class="map-btn">Abrir Mapa</a>
+                </div>
+                <div class="map-container">
+                    <iframe width="100%" height="650px" frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB2NIWI3Tv9iDPrlnowr_0ZqZWoAQydKJU&q=Av.%20Pedro%20De%20Heredia%20%2333-31%2C%20Alcibia%2C%20Cartagena%20de%20Indias%2C%20Bol%C3%ADvar%2C%20Colombia&maptype=roadmap"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

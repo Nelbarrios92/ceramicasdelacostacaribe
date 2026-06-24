@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Cerámicas de la Costa Caribeee</title>
+    <meta name="description"
+        content="Contáctanos en Cerámicas de la Costa Caribe. Teléfono, correo, dirección y redes sociales. Estamos en AV Pedro de Heredia, Cartagena.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ── Back link ── */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            transform: translateX(-5px);
+        }
+
+        /* ── Contact page wrapper ── */
+        .contact-page {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        .contact-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        /* ── Two-column contact section ── */
+        .contact-split {
+            display: grid;
+            grid-template-columns: 55% 45%;
+            gap: 0;
+            padding: 60px 0 70px;
+            align-items: center;
+        }
+
+        /* LEFT: info panel */
+        .contact-info-panel {
+            padding-right: 60px;
+        }
+
+        .contact-label {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #4F46E5;
+            margin-bottom: 14px;
+        }
+
+        .contact-heading {
+            font-size: 2.6rem;
+            font-weight: 900;
+            font-family: var(--font-heading);
+            line-height: 1.1;
+            color: var(--secondary-color);
+            margin-bottom: 18px;
+        }
+
+        .contact-desc {
+            font-size: 1rem;
+            color: #6B7280;
+            line-height: 1.7;
+            margin-bottom: 36px;
+            max-width: 420px;
+        }
+
+        .contact-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        .contact-info-item .ci-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border: 1.5px solid #C7D2FE;
+            border-radius: 10px;
+            color: #4F46E5;
+            flex-shrink: 0;
+            background: #F5F3FF;
+        }
+
+        .contact-info-item .ci-icon i {
+            width: 17px;
+            height: 17px;
+        }
+
+        .contact-info-item a {
+            color: #4F46E5;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .contact-info-item a:hover {
+            color: #3730A3;
+            text-decoration: underline;
+        }
+
+        .contact-info-item span {
+            color: var(--secondary-color);
+        }
+
+        /* RIGHT: form panel */
+        .contact-form-panel {
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 20px;
+            padding: 40px 36px;
+        }
+
+        .cf-field {
+            margin-bottom: 20px;
+        }
+
+        .cf-label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 7px;
+            letter-spacing: 0.2px;
+        }
+
+        .cf-input,
+        .cf-textarea {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid #E5E7EB;
+            border-radius: 10px;
+            background: #FFFFFF;
+            font-family: var(--font-body);
+            font-size: 0.93rem;
+            color: var(--secondary-color);
+            outline: none;
+            transition: border-color 0.2s ease;
+            resize: none;
+        }
+
+        .cf-input:focus,
+        .cf-textarea:focus {
+            border-color: #4F46E5;
+        }
+
+        .cf-input::placeholder,
+        .cf-textarea::placeholder {
+            color: #9CA3AF;
+        }
+
+        .cf-textarea {
+            height: 110px;
+        }
+
+        .cf-submit {
+            width: 100%;
+            padding: 13px 24px;
+            background: #4F46E5;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 10px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+            transition: background 0.2s ease, transform 0.15s ease;
+            margin-top: 4px;
+        }
+
+        .cf-submit:hover {
+            background: #4338CA;
+            transform: translateY(-2px);
+        }
+
+        /* ── Separator ── */
+        .border-separator {
+            height: 1px;
+            background: var(--border-color);
+            width: 100%;
+        }
+
+        /* ── Social section ── */
+        .social-section {
+            position: relative;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .social-dots {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(45, 52, 54, 0.12) 1px, transparent 1px);
+            background-size: 32px 32px;
+            mask-image: radial-gradient(ellipse at center, white 30%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at center, white 30%, transparent 80%);
+        }
+
+        .social-inner {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .social-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            font-family: var(--font-heading);
+            margin-bottom: 32px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+        }
+
+        .social-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border: 1px solid var(--border-color);
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        .social-pill:hover {
+            background: var(--accent-color);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 140, 66, 0.15);
+        }
+
+        .social-pill i {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .contact-split {
+                grid-template-columns: 1fr;
+                padding: 40px 0 50px;
+            }
+
+            .contact-info-panel {
+                padding-right: 0;
+                padding-bottom: 40px;
+            }
+
+            .contact-heading {
+                font-size: 2rem;
+            }
+
+            .social-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-form-panel {
+                padding: 30px 20px;
+            }
+
+            .contact-heading {
+                font-size: 1.8rem;
+            }
+
+            .social-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="main-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Logo Cerámicas de la Costa Caribe" class="logo-img">
+            </a>
+            <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-tab"><a href="materiales.html">Promociones</a></li>
+                <li class="nav-tab"><a href="servicios.html">Servicios</a></li>
+                <li class="nav-tab"><a href="ubicacion.html">Ubicación</a></li>
+                <li class="nav-tab"><a href="index.html#contacto">Contacto</a></li>
+                <li class="nav-cursor"></li>
+            </ul>
+            <a href="https://wa.me/573002615856" class="whatsapp-btn" target="_blank">
+                <i data-lucide="message-circle"></i>
+                <span>Cotización en línea</span>
+            </a>
+        </nav>
+    </header>
+
+    <main class="contact-page">
+        <div class="contact-inner">
+
+            <!-- Back link -->
+            <div style="padding: 24px 0 0;">
+                <a href="index.html" class="back-link">
+                    <i data-lucide="arrow-left"></i> Volver al Inicio
+                </a>
+            </div>
+
+            <!-- Two-column contact section -->
+            <div class="contact-split">
+
+                <!-- LEFT: Info panel -->
+                <div class="contact-info-panel">
+                    <span class="contact-label">Contacto</span>
+                    <h1 class="contact-heading">Cuéntanos cómo<br>podemos ayudarte</h1>
+                    <p class="contact-desc">
+                        Estamos aquí para ayudarte y responder cualquier pregunta que puedas tener.
+                        ¡Esperamos tener noticias tuyas! Completa el formulario o usa nuestra
+                        información de contacto directamente.
+                    </p>
+
+                    <div class="contact-info-list">
+                        <!-- Email -->
+                        <div class="contact-info-item">
+                            <span class="ci-icon"><i data-lucide="mail"></i></span>
+                            <a href="mailto:ceramicascostacaribe@gmail.com">ceramicascostacaribe@gmail.com</a>
+                        </div>
+                        <!-- Phone -->
+                        <div class="contact-info-item">
+                            <span class="ci-icon"><i data-lucide="phone"></i></span>
+                            <a href="tel:+573002615856">+57 300 2615856</a>
+                        </div>
+                        <!-- Address -->
+                        <div class="contact-info-item">
+                            <span class="ci-icon"><i data-lucide="map-pin"></i></span>
+                            <span>AV Pedro de Heredia Calle 30 #33-31, Cartagena, Colombia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: Contact form -->
+                <div class="contact-form-panel">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)">
+                        <div class="cf-field">
+                            <label class="cf-label" for="cf-name">Nombre completo</label>
+                            <input id="cf-name" type="text" class="cf-input" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="cf-field">
+                            <label class="cf-label" for="cf-email">Correo electrónico</label>
+                            <input id="cf-email" type="email" class="cf-input" placeholder="tu@correo.com" required>
+                        </div>
+                        <div class="cf-field">
+                            <label class="cf-label" for="cf-company">Empresa</label>
+                            <input id="cf-company" type="text" class="cf-input"
+                                placeholder="Nombre de tu empresa (opcional)">
+                        </div>
+                        <div class="cf-field">
+                            <label class="cf-label" for="cf-message">Mensaje</label>
+                            <textarea id="cf-message" class="cf-textarea" placeholder="Escribe tu mensaje aquí..."
+                                rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="cf-submit">Enviar mensaje</button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Separator -->
+
+            <!-- Social Section -->
+            <div class="social-section">
+                <div class="social-dots"></div>
+                <div class="social-inner">
+                    <h2 class="social-title">Síguenos en redes <span class="accent-text">sociales</span></h2>
+                    <div class="social-links">
+                        <a href="https://wa.me/573002615856" target="_blank" class="social-pill">
+                            <i data-lucide="message-circle"></i>
+                            WhatsApp
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" class="social-pill">
+                            <i data-lucide="facebook"></i>
+                            Facebook
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" class="social-pill">
+                            <i data-lucide="instagram"></i>
+                            Instagram
+                        </a>
+                        <a href="https://www.google.com/maps/place/Av.+Pedro+De+Heredia+%2333-31,+Alcibia,+Cartagena+de+Indias"
+                            target="_blank" class="social-pill">
+                            <i data-lucide="map-pin"></i>
+                            Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const btn = document.querySelector('.cf-submit');
+            const originalText = btn.textContent;
+            btn.textContent = '¡Mensaje enviado!';
+            btn.style.background = '#059669';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '';
+                btn.disabled = false;
+                e.target.reset();
+            }, 3000);
+        }
+
+        function copyText(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                btn.classList.add('copied');
+                setTimeout(() => btn.classList.remove('copied'), 1500);
+            }).catch(() => {
+                // Fallback para navegadores sin acceso al clipboard
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                btn.classList.add('copied');
+                setTimeout(() => btn.classList.remove('copied'), 1500);
+            });
+        }
+    </script>
+</body>
+
+</html>

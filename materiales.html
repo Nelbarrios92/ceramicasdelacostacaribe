@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Materiales | Cerámicas de la Costa Caribe</title>
+    <meta name="description"
+        content="Explora nuestro catálogo de cerámicas, pisos, baños, cocinas y pegantes de Calidad 1, 2 y 3 en Cartagena. Todo en Cerámicas de la Costa Caribe.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Extra styles for Catalog Page */
+        .catalog-container {
+            padding: 160px var(--container-padding) 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            transform: translateX(-5px);
+        }
+
+        .catalog-header {
+            margin-bottom: 40px;
+        }
+
+        .catalog-title {
+            font-size: 3.5rem;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        .catalog-tagline {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 700px;
+        }
+
+        /* Material Category Filters */
+        .catalog-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 50px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .filter-btn {
+            background-color: var(--accent-color);
+            color: var(--secondary-color);
+            border: 1px solid transparent;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-family: var(--font-body);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Catalog Card enhancements */
+        .material-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .material-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .material-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            z-index: 2;
+        }
+
+        .material-card img {
+            height: 280px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .material-info {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .material-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            color: var(--secondary-color);
+        }
+
+        .material-info p {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .material-footer {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+
+        .material-quality {
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 0.85rem;
+            background: #F5F5F5;
+            padding: 4px 12px;
+            border-radius: 8px;
+            text-transform: uppercase;
+        }
+
+        .card-whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+        }
+
+        .card-whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+
+        /* Grid layout for catalog */
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .catalog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .catalog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .catalog-title {
+                font-size: 2.2rem;
+            }
+
+            .catalog-container {
+                padding-top: 120px;
+                padding-bottom: 60px;
+            }
+
+            .search-container {
+                margin-bottom: 25px;
+            }
+        }
+
+        /* Search input bar styles */
+        .search-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto 35px auto;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 14px 20px 14px 50px;
+            border-radius: 50px;
+            border: 2px solid var(--border-color);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            background: #FAFAFA;
+        }
+
+        .search-container input:focus {
+            border-color: var(--primary-color);
+            background: #FFF;
+            box-shadow: 0 5px 15px rgba(255, 140, 66, 0.15);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="main-header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Logo Cerámicas de la Costa Caribe" class="logo-img">
+            </a>
+            <button class="menu-toggle" aria-expanded="false" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-tab"><a href="index.html">Inicio</a></li>
+                <li class="nav-tab"><a href="materiales.html">Promociones</a></li>
+                <li class="nav-tab"><a href="servicios.html">Servicios</a></li>
+                <li class="nav-tab"><a href="ubicacion.html">Ubicación</a></li>
+                <li class="nav-tab"><a href="index.html#contacto">Contacto</a></li>
+                <li class="nav-cursor"></li>
+            </ul>
+            <a href="https://wa.me/573002615856" class="whatsapp-btn" target="_blank">
+                <i data-lucide="message-circle"></i>
+                <span>Cotización en línea</span>
+            </a>
+        </nav>
+    </header>
+
+    <main class="catalog-container">
+        <div class="catalog-header">
+            <h1 class="catalog-title">Nuestro Catálogo de <span class="accent-text">Materiales</span></h1>
+            <p class="catalog-tagline">Descubre una selección exclusiva de acabados para transformar tu espacio con la
+                calidad y durabilidad que solo nosotros ofrecemos en Cartagena.</p>
+        </div>
+
+        <div class="search-container">
+            <i data-lucide="search" class="search-icon"></i>
+            <input type="text" id="catalog-search" oninput="filterCatalog()"
+                placeholder="Buscar materiales (ej. Gris, Malaga, Rustica)...">
+        </div>
+
+        <div class="catalog-filters">
+            <button class="filter-btn active" onclick="filterCatalog('todos')">Todos los Materiales</button>
+            <button class="filter-btn" onclick="filterCatalog('calidad1')">Calidad 1</button>
+            <button class="filter-btn" onclick="filterCatalog('calidad2')">Calidad 2</button>
+            <button class="filter-btn" onclick="filterCatalog('pisos')">Pisos y Enchapes</button>
+        </div>
+
+        <div class="catalog-grid">
+            <!-- Material 1 -->
+            <div class="material-card" data-category="todos calidad1 pisos">
+                <div class="material-badge">10% OFF</div>
+                <img src="assets/images/CERAMICA_20TOLU_20GRIS_2051X51.jpeg" alt="Tolu Gris 51x51">
+                <div class="material-info">
+                    <h3>Tolu Gris 51x51</h3>
+                    <p>Cerámica ideal para zonas de alto tráfico y exteriores. Diseño moderno y textura antideslizante.
+                    </p>
+                    <div class="material-footer">
+                        <span class="material-quality">Calidad 1</span>
+                        <a href="https://wa.me/573002615856?text=Hola!%20Me%20interesa%20el%20material%20Tolu%20Gris%2051x51"
+                            target="_blank" class="card-whatsapp-btn">
+                            <i data-lucide="message-circle"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material 2 -->
+            <div class="material-card" data-category="todos calidad2 pisos">
+                <div class="material-badge">OFERTA</div>
+                <img src="assets/images/MALAGA-BEIGE-C.jpg" alt="Malaga Beige C">
+                <div class="material-info">
+                    <h3>Malaga Beige</h3>
+                    <p>Un acabado clásico con tonalidades cálidas que aporta amplitud y luminosidad a salas y alcobas.
+                    </p>
+                    <div class="material-footer">
+                        <span class="material-quality">Calidad 2</span>
+                        <a href="https://wa.me/573002615856?text=Hola!%20Me%20interesa%20el%20material%20Malaga%20Beige"
+                            target="_blank" class="card-whatsapp-btn">
+                            <i data-lucide="message-circle"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material 3 -->
+            <div class="material-card" data-category="todos calidad1 pisos">
+                <div class="material-badge">OFERTA</div>
+                <img src="assets/images/Galera-rustica.png" alt="Galera Rustica">
+                <div class="material-info">
+                    <h3>Galera Rustica</h3>
+                    <p>Perfecto para terrazas, patios y exteriores. Aspecto natural, texturizado y altamente resistente.
+                    </p>
+                    <div class="material-footer">
+                        <span class="material-quality">Calidad 1</span>
+                        <a href="https://wa.me/573002615856?text=Hola!%20Me%20interesa%20el%20material%20Galera%20Rustica"
+                            target="_blank" class="card-whatsapp-btn">
+                            <i data-lucide="message-circle"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material 4 -->
+            <div class="material-card" data-category="todos calidad2 pisos">
+                <div class="material-badge">NUEVO</div>
+                <img src="assets/images/SANTA-MARTA-GRIS-C.jpg" alt="Santa Marta Gris C">
+                <div class="material-info">
+                    <h3>Santa Marta Gris</h3>
+                    <p>Acabado elegante en tonos fríos. Ideal para cocinas, baños y espacios que busquen sobriedad
+                        contemporánea.</p>
+                    <div class="material-footer">
+                        <span class="material-quality">Calidad 2</span>
+                        <a href="https://wa.me/573002615856?text=Hola!%20Me%20interesa%20el%20material%20Santa%20Marta%20Gris"
+                            target="_blank" class="card-whatsapp-btn">
+                            <i data-lucide="message-circle"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material 5 - Foto carpeta Material -->
+            <div class="material-card" data-category="todos calidad1 pisos">
+                <div class="material-badge">OFERTA</div>
+                <img src="assets/Material/WhatsApp Image 2026-06-22 at 3.34.26 PM.jpeg" alt="Material Calidad 1">
+                <div class="material-info">
+                    <h3>Cerámica Calidad 1 — A</h3>
+                    <p>Material de primera calidad para interiores y exteriores. Resistente, durable y de excelente
+                        acabado.</p>
+                    <div class="material-footer">
+                        <span class="material-quality">Calidad 1</span>
+                        <a href="https://wa.me/573002615856?text=Hola!%20Me%20interesa%20el%20material%20Cer%C3%A1mica%20Calidad%201%20A"
+                            target="_blank" class="card-whatsapp-btn">
+                            <i data-lucide="message-circle"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material 6 - Foto carpeta Material -->
+            <div class="material-card" data-category="todos calidad1 pisos">
+                <div class="material-badge">OFERTA</div>
+                <img src="assets/Material/WhatsApp Image 2026-06-22 at 3.34.26 PM (1).jpeg" alt="Material Calidad 1">
+                <div class="material-info">
+                    <h3>Cerámica Calidad 1 — B</h3>
+                    <p>Acabado premium con textura moderna. Ideal para salas, cocinas y baños de alto estándar.</p>
+                    <div class="material-footer">
+                        <span class="material-quality">Calidad 1</span>
+                        <a href="https://wa.me/573002615856?text=Hola!%20Me%20interesa%20el%20material%20Cer%C3%A1mica%20Calidad%201%20B"
+                            target="_blank" class="card-whatsapp-btn">
+                            <i data-lucide="message-circle"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material 7 - Foto carpeta Material -->
+            <div class="material-card" data-category="todos calidad1 pisos">
+                <div class="material-badge">OFERTA</div>
+                <img src="assets/Material/WhatsApp Image 2026-06-22 at 3.34.27 PM.jpeg" alt="Material Calidad 1">
+                <div class="material-info">
+                    <h3>Cerámica Calidad 1 — C</h3>
+                    <p>Diseño contemporáneo con alta resistencia al desgaste. Perfecto para zonas de alto tráfico.</p>
+                    <div class="material-footer">
+                        <span class="material-quality">Calidad 1</span>
+                        <a href="https://wa.me/573002615856?text=Hola!%20Me%20interesa%20el%20material%20Cer%C3%A1mica%20Calidad%201%20C"
+                            target="_blank" class="card-whatsapp-btn">
+                            <i data-lucide="message-circle"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material 8 - Foto carpeta Material -->
+            <div class="material-card" data-category="todos calidad1 pisos">
+                <div class="material-badge">OFERTA</div>
+                <img src="assets/Material/WhatsApp Image 2026-06-22 at 3.34.27 PM (1).jpeg" alt="Material Calidad 1">
+                <div class="material-info">
+                    <h3>Cerámica Calidad 1 — D</h3>
+                    <p>Superficie lisa y elegante. Resalta cualquier espacio con su acabado brillante de primera.</p>
+                    <div class="material-footer">
+                        <span class="material-quality">Calidad 1</span>
+                        <a href="https://wa.me/573002615856?text=Hola!%20Me%20interesa%20el%20material%20Cer%C3%A1mica%20Calidad%201%20D"
+                            target="_blank" class="card-whatsapp-btn">
+                            <i data-lucide="message-circle"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material 9 - Foto carpeta Material -->
+            <div class="material-card" data-category="todos calidad1 pisos">
+                <div class="material-badge">OFERTA</div>
+                <img src="assets/Material/WhatsApp Image 2026-06-22 at 3.34.27 PM (2).jpeg" alt="Material Calidad 1">
+                <div class="material-info">
+                    <h3>Cerámica Calidad 1 — E</h3>
+                    <p>Textura rústica con calidad premium. Aporta calidez y personalidad a cada rincón del hogar.</p>
+                    <div class="material-footer">
+                        <span class="material-quality">Calidad 1</span>
+                        <a href="https://wa.me/573002615856?text=Hola!%20Me%20interesa%20el%20material%20Cer%C3%A1mica%20Calidad%201%20E"
+                            target="_blank" class="card-whatsapp-btn">
+                            <i data-lucide="message-circle"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material 10 - Foto carpeta Material -->
+            <div class="material-card" data-category="todos calidad1 pisos">
+                <div class="material-badge">OFERTA</div>
+                <img src="assets/Material/WhatsApp Image 2026-06-22 at 3.34.27 PM (3).jpeg" alt="Material Calidad 1">
+                <div class="material-info">
+                    <h3>Cerámica Calidad 1 — F</h3>
+                    <p>Acabado fino de alta resistencia química y mecánica. Ideal para cocinas y baños de uso intensivo.
+                    </p>
+                    <div class="material-footer">
+                        <span class="material-quality">Calidad 1</span>
+                        <a href="https://wa.me/573002615856?text=Hola!%20Me%20interesa%20el%20material%20Cer%C3%A1mica%20Calidad%201%20F"
+                            target="_blank" class="card-whatsapp-btn">
+                            <i data-lucide="message-circle"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material 11 - Foto carpeta Material -->
+            <div class="material-card" data-category="todos calidad1 pisos">
+                <div class="material-badge">OFERTA</div>
+                <img src="assets/Material/WhatsApp Image 2026-06-22 at 3.34.27 PM (4).jpeg" alt="Material Calidad 1">
+                <div class="material-info">
+                    <h3>Cerámica Calidad 1 — G</h3>
+                    <p>Diseño versátil que combina con múltiples estilos decorativos. Calidad garantizada al mejor
+                        precio.</p>
+                    <div class="material-footer">
+                        <span class="material-quality">Calidad 1</span>
+                        <a href="https://wa.me/573002615856?text=Hola!%20Me%20interesa%20el%20material%20Cer%C3%A1mica%20Calidad%201%20G"
+                            target="_blank" class="card-whatsapp-btn">
+                            <i data-lucide="message-circle"></i> Cotizar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+
+        let activeCategory = 'todos';
+
+        // Combined Catalog Filter & Search function
+        function filterCatalog(category) {
+            // If category is provided, update active category and tab styles
+            if (category) {
+                activeCategory = category;
+                const buttons = document.querySelectorAll('.filter-btn');
+                buttons.forEach(btn => btn.classList.remove('active'));
+
+                // Find clicked button to activate it
+                if (window.event && window.event.currentTarget) {
+                    window.event.currentTarget.classList.add('active');
+                } else {
+                    const targetBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(`'${category}'`));
+                    if (targetBtn) targetBtn.classList.add('active');
+                }
+            }
+
+            const searchQuery = document.getElementById('catalog-search').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.material-card');
+
+            cards.forEach(card => {
+                const categories = card.getAttribute('data-category').split(' ');
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+
+                const matchesCategory = (activeCategory === 'todos' || categories.includes(activeCategory));
+                const matchesSearch = title.includes(searchQuery) || description.includes(searchQuery);
+
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

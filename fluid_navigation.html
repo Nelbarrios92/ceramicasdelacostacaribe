@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluid Navigation</title>
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --title-color: #2d3748;
+            --subtitle-color: #a0aec0;
+            --btn-bg: #f0f0f0;
+            --icon-color: #6b7280;
+            --btn-size: 56px;
+            --btn-gap: 10px;
+            --transition-speed: 0.35s;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .header {
+            margin-top: 60px;
+            margin-bottom: 40px;
+        }
+
+        .title {
+            color: var(--title-color);
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+        }
+
+        .subtitle {
+            color: var(--subtitle-color);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--btn-gap);
+        }
+
+        .menu-btn {
+            width: var(--btn-size);
+            height: var(--btn-size);
+            background-color: var(--btn-bg);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: var(--icon-color);
+            transition: transform 0.2s ease, opacity var(--transition-speed) ease, height var(--transition-speed) ease, margin var(--transition-speed) ease;
+            opacity: 0;
+            /* For initial animation */
+            transform: translateY(-20px);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .menu-btn:hover {
+            transform: scale(1.08);
+        }
+
+        /* Toggle Button Special State */
+        .toggle-btn {
+            opacity: 1;
+            transform: translateY(0);
+            z-index: 10;
+        }
+
+        .toggle-btn svg {
+            transition: transform var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .menu-collapsed .toggle-btn svg {
+            transform: rotate(45deg);
+            /* Make X look like a + when collapsed */
+        }
+
+        /* Menu Items */
+        .menu-items {
+            display: flex;
+            flex-direction: column;
+            gap: var(--btn-gap);
+            transition: all var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Load Animation Class */
+        .menu-btn.loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Collapsed State */
+        .menu-collapsed .menu-item {
+            opacity: 0;
+            height: 0;
+            margin-bottom: calc(var(--btn-gap) * -1);
+            /* Remove gap */
+            transform: scale(0.5) translateY(-20px);
+            pointer-events: none;
+        }
+
+        .menu-item {
+            transition: opacity 0.3s ease, height 0.3s ease, transform 0.3s ease, margin 0.3s ease, background-color 0.2s ease;
+            height: var(--btn-size);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1 class="title">Fluid Navigation</h1>
+        <p class="subtitle">A fluid circular menu with smooth transitions</p>
+    </div>
+
+    <div class="menu-container" id="menuContainer">
+        <!-- Close / Toggle Button -->
+        <button class="menu-btn toggle-btn loaded" id="toggleBtn" aria-label="Toggle Menu">
+            <i data-feather="x"></i>
+        </button>
+        <!-- Menu Items -->
+        <div class="menu-items" id="menuItems">
+            <button class="menu-btn menu-item" aria-label="Home">
+                <i data-feather="home"></i>
+            </button>
+            <button class="menu-btn menu-item" aria-label="Mail">
+                <i data-feather="mail"></i>
+            </button>
+            <button class="menu-btn menu-item" aria-label="User">
+                <i data-feather="user"></i>
+            </button>
+            <button class="menu-btn menu-item" aria-label="Settings">
+                <i data-feather="settings"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace({
+            width: 22,
+            height: 22
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuItems = document.querySelectorAll('.menu-item');
+            const toggleBtn = document.getElementById('toggleBtn');
+            const menuContainer = document.getElementById('menuContainer');
+
+            // Initial load animation (staggered slide-down + fade-in)
+            menuItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('loaded');
+                }, (index + 1) * 80);
+            });
+
+            // Toggle menu on click
+            toggleBtn.addEventListener('click', () => {
+                menuContainer.classList.toggle('menu-collapsed');
+
+                if (!menuContainer.classList.contains('menu-collapsed')) {
+                    // Expanding: stagger top to bottom
+                    menuItems.forEach((item, index) => {
+                        item.style.transitionDelay = `${index * 40}ms`;
+                    });
+                } else {
+                    // Collapsing: stagger bottom to top
+                    menuItems.forEach((item, index) => {
+                        item.style.transitionDelay = `${(menuItems.length - 1 - index) * 40}ms`;
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
