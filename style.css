@@ -750,13 +750,6 @@ footer {
     flex-shrink: 0;
 }
 
-/* Ocultar menú en pantallas más grandes que 767px (solo móvil) */
-@media (min-width: 768px) {
-    .circle-menu-wrapper {
-        display: none;
-    }
-}
-
 /* Responsive */
 @media (max-width: 900px) {
     .home-contact-inner {
