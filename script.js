@@ -132,9 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     items.forEach((item, i) => {
                         const total = items.length;
-                        // Fan out in the top-left quadrant (180 deg to 270 deg)
-                        const startAngle = Math.PI; // 180 degrees (left)
-                        const endAngle = 1.5 * Math.PI; // 270 degrees (top)
+                        // Fan out toward bottom-right (0 deg to 90 deg)
+                        const startAngle = 0; // 0 degrees (right)
+                        const endAngle = Math.PI / 2; // 90 degrees (down)
                         const theta = startAngle + (endAngle - startAngle) * (i / (total - 1));
                         
                         const x = radius * Math.cos(theta);

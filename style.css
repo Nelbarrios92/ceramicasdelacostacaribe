@@ -611,8 +611,8 @@ footer {
 /* ── Floating Circle Menu ── */
         .circle-menu-wrapper {
             position: fixed;
-            bottom: 25px;
-            right: 25px;
+            top: 90px;
+            left: 16px;
             z-index: 999;
             width: 56px;
             height: 56px;
