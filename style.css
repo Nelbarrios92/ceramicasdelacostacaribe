@@ -750,12 +750,6 @@ footer {
     flex-shrink: 0;
 }
 
-@media (min-width: 901px) {
-    .circle-menu-wrapper {
-        display: none;
-    }
-}
-
 /* Responsive */
 @media (max-width: 900px) {
     .home-contact-inner {
