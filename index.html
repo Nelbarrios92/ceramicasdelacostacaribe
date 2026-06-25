@@ -182,7 +182,43 @@
             background: #4338CA;
             transform: translateY(-2px);
         }
-    </style>
+
+    @media (max-width: 900px) {
+        .home-contact-inner {
+            grid-template-columns: 1fr;
+        }
+        .home-contact-info {
+            padding-right: 0;
+            padding-bottom: 40px;
+        }
+        .hc-heading {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .home-contact-form {
+            padding: 24px 16px;
+        }
+
+        .hc-heading {
+            font-size: 1.6rem;
+        }
+
+        .home-contact-section {
+            padding: 50px var(--container-padding);
+        }
+
+        .hc-desc {
+            font-size: 0.92rem;
+        }
+
+        .hcf-input,
+        .hcf-textarea {
+            font-size: 16px;
+        }
+    }
+</style>
 </head>
 
 <body>
@@ -192,9 +228,6 @@
                 <span class="menu-icon">☰</span>
                 <span class="menu-text">Menú</span>
             </button>
-            <a href="index.html" class="logo">
-                <img src="assets/images/logo.png" alt="Logo Cerámicas de la Costa Caribe" class="logo-img">
-            </a>
             <ul class="nav-links">
                 <li class="nav-tab"><a href="#home">Inicio</a></li>
                 <li class="nav-tab"><a href="materiales.html">Promociones</a></li>
@@ -203,6 +236,9 @@
                 <li class="nav-tab"><a href="#contacto">Contacto</a></li>
                 <li class="nav-cursor"></li>
             </ul>
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Logo Cerámicas de la Costa Caribe" class="logo-img">
+            </a>
         </nav>
     </header>
 
@@ -285,7 +321,8 @@
             </div>
         </section>
         <!-- ── Floating WhatsApp Button ── -->
-        <a href="https://wa.me/573002615856" class="floating-whatsapp-btn" target="_blank" aria-label="Cotización en línea">
+        <a href="https://wa.me/573002615856" class="floating-whatsapp-btn" target="_blank"
+            aria-label="Cotización en línea">
             <i data-lucide="message-circle"></i>
         </a>
 
@@ -293,7 +330,10 @@
         <div class="drawer-overlay" id="drawer-overlay"></div>
         <div class="drawer" id="drawer">
             <div class="drawer-header">
-                <span class="drawer-title">¡Hola!</span>
+                <span class="drawer-title">
+                    <img src="assets/images/logo.png" alt="" class="drawer-logo">
+                    ¡Bienvenido a Ceramica de la costa!
+                </span>
                 <button class="drawer-close" id="drawer-close" aria-label="Cerrar menú">
                     <span class="close-icon">✕</span>
                 </button>
