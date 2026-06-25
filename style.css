@@ -552,28 +552,8 @@ footer {
     }
 }
 
-/* Mobile menu toggle */
-.menu-toggle {
-    display: none;
-    background: transparent;
-    border: none;
-    font-size: 1.4rem;
-    cursor: pointer;
-    color: var(--secondary-color);
-    padding: 8px;
-}
-
-.menu-toggle i {
-    width: 26px;
-    height: 26px;
-}
-
 /* Mobile menu behavior */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
     .nav-links.mobile-open {
         display: flex;
         position: absolute;
