@@ -75,16 +75,17 @@ header {
 
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    gap: 20px;
     max-width: 1400px;
     margin: 0 auto;
     position: relative;
 }
 
 .navbar .logo {
-    position: absolute;
-    left: 0;
+    position: relative;
+    left: auto;
 }
 
 .logo-img {
@@ -487,12 +488,7 @@ footer {
     .navbar {
         flex-wrap: wrap;
         gap: 20px;
-        justify-content: center;
-    }
-
-    .navbar .logo {
-        position: relative;
-        left: auto;
+        justify-content: flex-start;
     }
 
     .nav-links {
@@ -753,7 +749,7 @@ footer {
 /* -- Floating WhatsApp Button -- */
 .floating-whatsapp-btn {
     position: fixed;
-    bottom: 25px;
+    bottom: 45px;
     right: 25px;
     width: 56px;
     height: 56px;
@@ -780,6 +776,6 @@ footer {
 
 @media (max-width: 900px) {
     .floating-whatsapp-btn {
-        bottom: 90px;
+        bottom: 110px;
     }
 }
