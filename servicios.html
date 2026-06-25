@@ -121,32 +121,43 @@
             <i data-lucide="message-circle"></i>
         </a>
 
-        <!-- ── Circle Mobile Menu ── -->
-        <div class="circle-menu-wrapper" id="circle-menu-wrapper">
-            <button class="circle-menu-trigger" id="circle-menu-trigger" aria-label="Abrir menú circular">
-                <i data-lucide="menu" id="circle-icon-open"></i>
-                <i data-lucide="x" id="circle-icon-close" style="display: none;"></i>
+        <!-- ── Mobile Header ── -->
+        <div class="mobile-header" id="mobile-header">
+            <button class="drawer-trigger" id="drawer-trigger" aria-label="Abrir menú">
+                <span class="menu-icon">☰</span>
+                <span class="menu-text">Menú</span>
             </button>
-            <div class="circle-menu-items">
-                <a href="index.html" class="circle-menu-item">
-                    <i data-lucide="home"></i>
-                    <span class="label">Inicio</span>
+        </div>
+
+        <!-- ── Drawer Menu ── -->
+        <div class="drawer-overlay" id="drawer-overlay"></div>
+        <div class="drawer" id="drawer">
+            <div class="drawer-header">
+                <span class="drawer-title">¡Hola!</span>
+                <button class="drawer-close" id="drawer-close" aria-label="Cerrar menú">
+                    <span class="close-icon">✕</span>
+                </button>
+            </div>
+            <div class="drawer-body" id="drawer-body">
+                <a href="index.html" class="drawer-item">
+                    <span>Inicio</span>
+                    <span class="drawer-item-arrow">›</span>
                 </a>
-                <a href="materiales.html" class="circle-menu-item">
-                    <i data-lucide="tag"></i>
-                    <span class="label">Promociones</span>
+                <a href="materiales.html" class="drawer-item">
+                    <span>Promociones</span>
+                    <span class="drawer-item-arrow">›</span>
                 </a>
-                <a href="servicios.html" class="circle-menu-item">
-                    <i data-lucide="briefcase"></i>
-                    <span class="label">Servicios</span>
+                <a href="servicios.html" class="drawer-item">
+                    <span>Servicios</span>
+                    <span class="drawer-item-arrow">›</span>
                 </a>
-                <a href="ubicacion.html" class="circle-menu-item">
-                    <i data-lucide="map-pin"></i>
-                    <span class="label">Ubicación</span>
+                <a href="ubicacion.html" class="drawer-item">
+                    <span>Ubicación</span>
+                    <span class="drawer-item-arrow">›</span>
                 </a>
-                <a href="contacto.html" class="circle-menu-item">
-                    <i data-lucide="mail"></i>
-                    <span class="label">Contacto</span>
+                <a href="contacto.html" class="drawer-item">
+                    <span>Contacto</span>
+                    <span class="drawer-item-arrow">›</span>
                 </a>
             </div>
         </div>

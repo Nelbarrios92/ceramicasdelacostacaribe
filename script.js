@@ -110,50 +110,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Floating Circle Menu Logic
-        const trigger = document.getElementById('circle-menu-trigger');
-        const wrapper = document.getElementById('circle-menu-wrapper');
-        const items = document.querySelectorAll('.circle-menu-item');
-        const iconOpen = document.getElementById('circle-icon-open');
-        const iconClose = document.getElementById('circle-icon-close');
-        
-        let menuOpen = false;
-        const radius = 110; // Radius of the arc
+// Drawer Menu Logic
+        const drawerTrigger = document.getElementById('drawer-trigger');
+        const drawer = document.getElementById('drawer');
+        const drawerOverlay = document.getElementById('drawer-overlay');
+        const drawerClose = document.getElementById('drawer-close');
 
-        if(trigger && wrapper) {
-            trigger.addEventListener('click', () => {
-                menuOpen = !menuOpen;
-                wrapper.classList.toggle('open', menuOpen);
-                trigger.classList.toggle('active', menuOpen);
-                
-                if(menuOpen) {
-                    iconOpen.style.display = 'none';
-                    iconClose.style.display = 'block';
-                    
-                    items.forEach((item, i) => {
-                        const total = items.length;
-                        // Fan out in the top-left quadrant (180 deg to 270 deg)
-                        const startAngle = Math.PI; // 180 degrees (left)
-                        const endAngle = 1.5 * Math.PI; // 270 degrees (top)
-                        const theta = startAngle + (endAngle - startAngle) * (i / (total - 1));
-                        
-                        const x = radius * Math.cos(theta);
-                        const y = radius * Math.sin(theta);
-                        
-                        setTimeout(() => {
-                            item.style.transform = `translate(${x}px, ${y}px) scale(1)`;
-                        }, i * 40); // stagger
-                    });
-                } else {
-                    iconClose.style.display = 'none';
-                    iconOpen.style.display = 'block';
-                    
-                    items.forEach((item, i) => {
-                        setTimeout(() => {
-                            item.style.transform = `translate(0px, 0px) scale(0)`;
-                        }, (items.length - 1 - i) * 40);
-                    });
-                }
-            });
+        function openDrawer() {
+            drawer.classList.add('open');
+            drawerOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            drawer.classList.remove('open');
+            drawerOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        if(drawerTrigger && drawer) {
+            drawerTrigger.addEventListener('click', openDrawer);
+
+            if(drawerClose) {
+                drawerClose.addEventListener('click', closeDrawer);
+            }
+
+            drawerOverlay.addEventListener('click', closeDrawer);
         }
     
