@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
     <title>Cerámicas de la Costa Caribe | Acabados de Lujo en Cartagena</title>
     <meta name="description"
         content="Encuentra pisos, enchapes, baños, cocinas y acabados de Calidad 1, 2 y 3 en Cartagena. Cerámicas de la Costa Caribe: Transformamos tu hogar con estilo y presupuesto real.">
@@ -24,7 +25,7 @@
         .home-contact-section {
             background: #fff;
             border-top: 1px solid #F1F1F1;
-            padding: 80px var(--container-padding);
+            padding: 50px var(--container-padding);
         }
 
         .home-contact-inner {
@@ -183,42 +184,44 @@
             transform: translateY(-2px);
         }
 
-    @media (max-width: 900px) {
-        .home-contact-inner {
-            grid-template-columns: 1fr;
-        }
-        .home-contact-info {
-            padding-right: 0;
-            padding-bottom: 40px;
-        }
-        .hc-heading {
-            font-size: 2rem;
-        }
-    }
+        @media (max-width: 900px) {
+            .home-contact-inner {
+                grid-template-columns: 1fr;
+            }
 
-    @media (max-width: 600px) {
-        .home-contact-form {
-            padding: 24px 16px;
+            .home-contact-info {
+                padding-right: 0;
+                padding-bottom: 40px;
+            }
+
+            .hc-heading {
+                font-size: 2rem;
+            }
         }
 
-        .hc-heading {
-            font-size: 1.6rem;
-        }
+        @media (max-width: 600px) {
+            .home-contact-form {
+                padding: 24px 16px;
+            }
 
-        .home-contact-section {
-            padding: 50px var(--container-padding);
-        }
+            .hc-heading {
+                font-size: 1.6rem;
+            }
 
-        .hc-desc {
-            font-size: 0.92rem;
-        }
+            .home-contact-section {
+                padding: 50px var(--container-padding);
+            }
 
-        .hcf-input,
-        .hcf-textarea {
-            font-size: 16px;
+            .hc-desc {
+                font-size: 0.92rem;
+            }
+
+            .hcf-input,
+            .hcf-textarea {
+                font-size: 16px;
+            }
         }
-    }
-</style>
+    </style>
 </head>
 
 <body>
@@ -248,11 +251,12 @@
                 <span class="badge">Especialistas en Acabados</span>
                 <h1 class="hero-title">Tu hogar merece el mejor <span class="accent-text">acabado.</span></h1>
                 <p class="hero-subtitle">Transforma cada espacio con estilo. Contamos con inventario completo en
-                    acabados con 40 años de experiencia y de calidad 1, 2 y 3 con estilos para cada presupuesto.</p>
-                <div class="hero-actions">
-                    <a href="materiales.html" class="primary-btn">Ver Promociones</a>
-                    <a href="servicios.html" class="secondary-btn">Explorar Servicios</a>
-                </div>
+                    acabados y de calidad 1, 2 y 3 con estilos para cada presupuesto.<strong>con 40 años de
+                        experiencia</strong>
+                    <div class="hero-actions">
+                        <a href="materiales.html" class="primary-btn">Ver Promociones</a>
+                        <a href="#productos" class="secondary-btn">Explorar Servicios</a>
+                    </div>
             </div>
             <div class="hero-image">
                 <picture>

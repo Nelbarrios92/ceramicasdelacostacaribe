@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
     <title>Catálogo de Materiales | Cerámicas de la Costa Caribe</title>
     <meta name="description"
         content="Explora nuestro catálogo de cerámicas, pisos, baños, cocinas y pegantes de Calidad 1, 2 y 3 en Cartagena. Todo en Cerámicas de la Costa Caribe.">
@@ -61,9 +62,9 @@
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
+            padding-bottom: 24px;
         }
 
         .filter-btn {
@@ -107,24 +108,31 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .material-badge {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: var(--primary-color);
-            color: white;
-            padding: 6px 14px;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 800;
-            z-index: 2;
+        .material-image-wrap {
+            position: relative;
+            width: 40%;
+            flex-shrink: 0;
+            overflow: hidden;
         }
 
-        .material-card img {
-            height: 280px;
-            width: 40%;
+        .material-image-wrap img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            flex-shrink: 0;
+            display: block;
+        }
+
+        .material-badge {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 7px;
+            border-radius: 6px;
+            font-size: 0.55rem;
+            font-weight: 800;
+            z-index: 2;
         }
 
         .material-info {
@@ -195,7 +203,7 @@
             }
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .catalog-grid {
                 grid-template-columns: 1fr;
             }
@@ -210,13 +218,15 @@
             }
 
             .material-card {
-                flex-direction: row-reverse;
+                flex-direction: column;
             }
 
-            .material-card img {
-                width: 40%;
-                height: auto;
-                align-self: flex-start;
+            .material-image-wrap {
+                width: 100%;
+            }
+
+            .material-image-wrap img {
+                height: 240px;
             }
         }
 
@@ -224,7 +234,7 @@
         .search-container {
             position: relative;
             max-width: 600px;
-            margin: 0 20px 0 auto;
+            margin: 0 20px 24px auto;
         }
 
         .search-container input {
@@ -302,8 +312,10 @@
         <div class="catalog-grid">
             <!-- Material 1 -->
             <div class="material-card" data-category="todos calidad1 pisos">
-                <div class="material-badge">10% OFF</div>
+                <div class="material-image-wrap">
+                    <div class="material-badge">10% OFF</div>
                 <img src="assets/images/CERAMICA_20TOLU_20GRIS_2051X51.jpeg" alt="Tolu Gris 51x51">
+                </div>
                 <div class="material-info">
                     <h3>Tolu Gris 51x51</h3>
                     <p>Cerámica ideal para zonas de alto tráfico y exteriores. Diseño moderno y textura antideslizante.
@@ -320,8 +332,10 @@
 
             <!-- Material 2 -->
             <div class="material-card" data-category="todos calidad2 pisos">
-                <div class="material-badge">OFERTA</div>
+                <div class="material-image-wrap">
+                    <div class="material-badge">OFERTA</div>
                 <img src="assets/images/MALAGA-BEIGE-C.jpg" alt="Malaga Beige C">
+                </div>
                 <div class="material-info">
                     <h3>Malaga Beige</h3>
                     <p>Un acabado clásico con tonalidades cálidas que aporta amplitud y luminosidad a salas y alcobas.
@@ -338,8 +352,10 @@
 
             <!-- Material 3 -->
             <div class="material-card" data-category="todos calidad1 pisos">
-                <div class="material-badge">OFERTA</div>
+                <div class="material-image-wrap">
+                    <div class="material-badge">OFERTA</div>
                 <img src="assets/images/Galera-rustica.png" alt="Galera Rustica">
+                </div>
                 <div class="material-info">
                     <h3>Galera Rustica</h3>
                     <p>Perfecto para terrazas, patios y exteriores. Aspecto natural, texturizado y altamente resistente.
@@ -356,8 +372,10 @@
 
             <!-- Material 4 -->
             <div class="material-card" data-category="todos calidad2 pisos">
-                <div class="material-badge">NUEVO</div>
+                <div class="material-image-wrap">
+                    <div class="material-badge">NUEVO</div>
                 <img src="assets/images/SANTA-MARTA-GRIS-C.jpg" alt="Santa Marta Gris C">
+                </div>
                 <div class="material-info">
                     <h3>Santa Marta Gris</h3>
                     <p>Acabado elegante en tonos fríos. Ideal para cocinas, baños y espacios que busquen sobriedad
@@ -374,8 +392,10 @@
 
             <!-- Material 5 - Foto carpeta Material -->
             <div class="material-card" data-category="todos calidad1 pisos">
-                <div class="material-badge">OFERTA</div>
+                <div class="material-image-wrap">
+                    <div class="material-badge">OFERTA</div>
                 <img src="assets/Material/WhatsApp Image 2026-06-22 at 3.34.26 PM.jpeg" alt="Material Calidad 1">
+                </div>
                 <div class="material-info">
                     <h3> Amaru 51x51 </h3>
                     <p>Material de primera calidad para interiores y exteriores. Resistente, durable y de excelente
@@ -392,8 +412,10 @@
 
             <!-- Material 6 - Foto carpeta Material -->
             <div class="material-card" data-category="todos calidad1 pisos">
-                <div class="material-badge">OFERTA</div>
+                <div class="material-image-wrap">
+                    <div class="material-badge">OFERTA</div>
                 <img src="assets/Material/WhatsApp Image 2026-06-22 at 3.34.26 PM (1).jpeg" alt="Material Calidad 1">
+                </div>
                 <div class="material-info">
                     <h3>Imperial 51x51 </h3>
                     <p>Acabado premium con textura moderna. Ideal para salas, cocinas y baños de alto estándar.</p>
@@ -409,8 +431,10 @@
 
             <!-- Material 7 - Foto carpeta Material -->
             <div class="material-card" data-category="todos calidad1 pisos">
-                <div class="material-badge">OFERTA</div>
+                <div class="material-image-wrap">
+                    <div class="material-badge">OFERTA</div>
                 <img src="assets/Material/WhatsApp Image 2026-06-22 at 3.34.27 PM.jpeg" alt="Material Calidad 1">
+                </div>
                 <div class="material-info">
                     <h3> Andean 51x51 </h3>
                     <p>Diseño contemporáneo con alta resistencia al desgaste. Perfecto para zonas de alto tráfico.</p>
@@ -426,8 +450,10 @@
 
             <!-- Material 8 - Foto carpeta Material -->
             <div class="material-card" data-category="todos calidad1 pisos">
-                <div class="material-badge">OFERTA</div>
+                <div class="material-image-wrap">
+                    <div class="material-badge">OFERTA</div>
                 <img src="assets/Material/WhatsApp Image 2026-06-22 at 3.34.27 PM (1).jpeg" alt="Material Calidad 1">
+                </div>
                 <div class="material-info">
                     <h3> Pikilla 51x51 </h3>
                     <p>Superficie lisa y elegante. Resalta cualquier espacio con su acabado brillante de primera.</p>
@@ -443,8 +469,10 @@
 
             <!-- Material 9 - Foto carpeta Material -->
             <div class="material-card" data-category="todos calidad1 pisos">
-                <div class="material-badge">OFERTA</div>
+                <div class="material-image-wrap">
+                    <div class="material-badge">OFERTA</div>
                 <img src="assets/Material/WhatsApp Image 2026-06-22 at 3.34.27 PM (2).jpeg" alt="Material Calidad 1">
+                </div>
                 <div class="material-info">
                     <h3> Tumi 51x51</h3>
                     <p>Textura rústica con calidad premium. Aporta calidez y personalidad a cada rincón del hogar.</p>
@@ -460,8 +488,10 @@
 
             <!-- Material 10 - Foto carpeta Material -->
             <div class="material-card" data-category="todos calidad1 pisos">
-                <div class="material-badge">OFERTA</div>
+                <div class="material-image-wrap">
+                    <div class="material-badge">OFERTA</div>
                 <img src="assets/Material/WhatsApp Image 2026-06-22 at 3.34.27 PM (3).jpeg" alt="Material Calidad 1">
+                </div>
                 <div class="material-info">
                     <h3> Quilla 51x51 </h3>
                     <p>Acabado fino de alta resistencia química y mecánica. Ideal para cocinas y baños de uso intensivo.
