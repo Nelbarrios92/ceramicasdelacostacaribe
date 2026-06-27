@@ -14,6 +14,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Sliding Nav-Header Logic (inspired by Framer Motion cursor tab)
+    const navLinks = document.querySelector('.nav-links');
+    const tabs = document.querySelectorAll('.nav-tab');
+    const cursor = document.querySelector('.nav-cursor');
+
+    if (navLinks && cursor) {
+        tabs.forEach(tab => {
+            tab.addEventListener('mouseenter', () => {
+                const width = tab.offsetWidth;
+                const left = tab.offsetLeft;
+                cursor.style.width = `${width}px`;
+                cursor.style.transform = `translateX(${left}px)`;
+                cursor.style.opacity = '1';
+            });
+        });
+
+        navLinks.addEventListener('mouseleave', () => {
+            cursor.style.opacity = '0';
+        });
+    }
+
     // Reveal animations on scroll
     const observerOptions = {
         threshold: 0.1
@@ -43,4 +64,77 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     `;
     document.head.appendChild(styleSheet);
+
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinksEl = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinksEl) {
+        menuToggle.addEventListener('click', () => {
+            const open = navLinksEl.classList.toggle('mobile-open');
+            menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            const icon = menuToggle.querySelector('i');
+            if (icon) {
+                icon.setAttribute('data-lucide', open ? 'x' : 'menu');
+                lucide.createIcons();
+            }
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinksEl.contains(e.target) && !menuToggle.contains(e.target)) {
+                if (navLinksEl.classList.contains('mobile-open')) {
+                    navLinksEl.classList.remove('mobile-open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    const icon = menuToggle.querySelector('i');
+                    if (icon) {
+                        icon.setAttribute('data-lucide', 'menu');
+                        lucide.createIcons();
+                    }
+                }
+            }
+        });
+
+        // Close on resize to large screens
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navLinksEl.classList.contains('mobile-open')) {
+                navLinksEl.classList.remove('mobile-open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                const icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.setAttribute('data-lucide', 'menu');
+                    lucide.createIcons();
+                }
+            }
+        });
+    }
 });
+
+// Drawer Menu Logic
+        const drawerTrigger = document.getElementById('drawer-trigger');
+        const drawer = document.getElementById('drawer');
+        const drawerOverlay = document.getElementById('drawer-overlay');
+        const drawerClose = document.getElementById('drawer-close');
+
+        function openDrawer() {
+            drawer.classList.add('open');
+            drawerOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDrawer() {
+            drawer.classList.remove('open');
+            drawerOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        if(drawerTrigger && drawer) {
+            drawerTrigger.addEventListener('click', openDrawer);
+
+            if(drawerClose) {
+                drawerClose.addEventListener('click', closeDrawer);
+            }
+
+            drawerOverlay.addEventListener('click', closeDrawer);
+        }
+    

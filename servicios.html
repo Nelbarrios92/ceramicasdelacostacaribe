@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <title>Productos & Servicios | Cerámicas de la Costa Caribe</title>
+    <meta name="description"
+        content="Conoce todos los productos y servicios de Cerámicas de la Costa Caribe: pisos, enchapes, sanitarios, pegantes y más en Cartagena.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 24px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary-color);
+            transform: translateX(-5px);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-tagline {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        @media (max-width: 600px) {
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .section-tagline {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="main-header">
+        <nav class="navbar">
+            <button class="drawer-trigger" id="drawer-trigger" aria-label="Abrir menú">
+                <span class="menu-icon">☰</span>
+                <span class="menu-text">Menú</span>
+            </button>
+            <ul class="nav-links">
+                <li class="nav-tab"><a href="index.html">Inicio</a></li>
+                <li class="nav-tab"><a href="materiales.html">Promociones</a></li>
+                <li class="nav-tab"><a href="servicios.html">Servicios</a></li>
+                <li class="nav-tab"><a href="ubicacion.html">Ubicación</a></li>
+                <li class="nav-tab"><a href="index.html#contacto">Contacto</a></li>
+                <li class="nav-cursor"></li>
+            </ul>
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo.png" alt="Logo Cerámicas de la Costa Caribe" class="logo-img">
+            </a>
+        </nav>
+    </header>
+
+    <main style="padding-top: 120px;">
+        <!-- Sección de productos -->
+        <section class="products" id="productos">
+            <div class="section-header">
+                <h2 class="section-title">Productos & Servicios</h2>
+                <p class="section-tagline">Todo lo que necesitas en un solo lugar.</p>
+            </div>
+            <div class="product-grid">
+                <!-- Tarjeta 1 -->
+                <div class="product-card">
+                    <div class="card-img">
+                        <img src="assets/images/kitchen.png" alt="Cocina">
+                    </div>
+                    <div class="card-body">
+                        <h3>Pisos y Enchapes</h3>
+                        <p>Variedad en cerámicas y porcelanatos de última tendencia.</p>
+                    </div>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div class="product-card">
+                    <div class="card-img">
+                        <img src="assets/images/bathroom.png" alt="Baño">
+                    </div>
+                    <div class="card-body">
+                        <h3>Sanitarios y Combos</h3>
+                        <p>Equipos completos para transformar tu baño.</p>
+                    </div>
+                </div>
+                <!-- Tarjeta 3 -->
+                <div class="product-card">
+                    <div class="card-img">
+                        <img src="assets/images/pegante.webp" alt="Pegantes y Boquillas">
+                    </div>
+                    <div class="card-body">
+                        <h3>Pegantes y Boquillas</h3>
+                        <p>Pegante cerámico y porcelanato de alta adherencia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Floating WhatsApp Button ── -->
+        <a href="https://wa.me/573002615856" class="floating-whatsapp-btn" target="_blank"
+            aria-label="Cotización en línea">
+            <i data-lucide="message-circle"></i>
+        </a>
+
+        <!-- ── Drawer Menu ── -->
+        <div class="drawer-overlay" id="drawer-overlay"></div>
+        <div class="drawer" id="drawer">
+            <div class="drawer-header">
+                <span class="drawer-title">
+                    <img src="assets/images/logo.png" alt="" class="drawer-logo">
+                    ¡Bienvenido a Ceramica de la costa!
+                </span>
+                <button class="drawer-close" id="drawer-close" aria-label="Cerrar menú">
+                    <span class="close-icon">✕</span>
+                </button>
+            </div>
+            <div class="drawer-body" id="drawer-body">
+                <a href="index.html" class="drawer-item">
+                    <span>Inicio</span>
+                    <span class="drawer-item-arrow">›</span>
+                </a>
+                <a href="materiales.html" class="drawer-item">
+                    <span>Promociones</span>
+                    <span class="drawer-item-arrow">›</span>
+                </a>
+                <a href="servicios.html" class="drawer-item">
+                    <span>Servicios</span>
+                    <span class="drawer-item-arrow">›</span>
+                </a>
+                <a href="ubicacion.html" class="drawer-item">
+                    <span>Ubicación</span>
+                    <span class="drawer-item-arrow">›</span>
+                </a>
+                <a href="contacto.html" class="drawer-item">
+                    <span>Contacto</span>
+                    <span class="drawer-item-arrow">›</span>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
